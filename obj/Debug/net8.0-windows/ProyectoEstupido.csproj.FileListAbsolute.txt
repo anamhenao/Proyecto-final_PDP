@@ -1,0 +1,57 @@
+C:\Users\migue\source\repos\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.FormCaptcha.resources
+C:\Users\migue\source\repos\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.FormConfirmacion.resources
+C:\Users\migue\source\repos\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.FormContrasena.resources
+C:\Users\migue\source\repos\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.FormInicio.resources
+C:\Users\migue\source\repos\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.FormNacimiento.resources
+C:\Users\migue\source\repos\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.FormPanelUniverso.resources
+C:\Users\migue\source\repos\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.FormUsuario.resources
+C:\Users\migue\source\repos\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.csproj.GenerateResource.cache
+C:\Users\migue\source\repos\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\migue\source\repos\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.AssemblyInfoInputs.cache
+C:\Users\migue\source\repos\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.AssemblyInfo.cs
+C:\Users\migue\source\repos\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.csproj.CoreCompileInputs.cache
+C:\Users\migue\source\repos\ProyectoEstupido\bin\Debug\net8.0-windows\ProyectoEstupido.exe
+C:\Users\migue\source\repos\ProyectoEstupido\bin\Debug\net8.0-windows\ProyectoEstupido.deps.json
+C:\Users\migue\source\repos\ProyectoEstupido\bin\Debug\net8.0-windows\ProyectoEstupido.runtimeconfig.json
+C:\Users\migue\source\repos\ProyectoEstupido\bin\Debug\net8.0-windows\ProyectoEstupido.dll
+C:\Users\migue\source\repos\ProyectoEstupido\bin\Debug\net8.0-windows\ProyectoEstupido.pdb
+C:\Users\migue\source\repos\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.dll
+C:\Users\migue\source\repos\ProyectoEstupido\obj\Debug\net8.0-windows\refint\ProyectoEstupido.dll
+C:\Users\migue\source\repos\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.pdb
+C:\Users\migue\source\repos\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.genruntimeconfig.cache
+C:\Users\migue\source\repos\ProyectoEstupido\obj\Debug\net8.0-windows\ref\ProyectoEstupido.dll
+C:\Users\migue\source\repos\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.FormInicioSesion.resources
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\bin\Debug\net8.0-windows\ProyectoEstupido.exe
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\bin\Debug\net8.0-windows\ProyectoEstupido.deps.json
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\bin\Debug\net8.0-windows\ProyectoEstupido.runtimeconfig.json
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\bin\Debug\net8.0-windows\ProyectoEstupido.dll
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\bin\Debug\net8.0-windows\ProyectoEstupido.pdb
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.FormCaptcha.resources
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.FormConfirmacion.resources
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.FormContrasena.resources
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.FormInicio.resources
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.FormInicioSesion.resources
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.FormNacimiento.resources
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.FormPanelUniverso.resources
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.FormUsuario.resources
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.csproj.GenerateResource.cache
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.AssemblyInfoInputs.cache
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.AssemblyInfo.cs
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.csproj.CoreCompileInputs.cache
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.dll
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\obj\Debug\net8.0-windows\refint\ProyectoEstupido.dll
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.pdb
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.genruntimeconfig.cache
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\obj\Debug\net8.0-windows\ref\ProyectoEstupido.dll
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\bin\Debug\net8.0-windows\runtimes\win-x86\native\WebView2Loader.dll
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\bin\Debug\net8.0-windows\runtimes\win-x64\native\WebView2Loader.dll
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\bin\Debug\net8.0-windows\runtimes\win-arm64\native\WebView2Loader.dll
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\bin\Debug\net8.0-windows\Microsoft.Web.WebView2.Core.dll
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\bin\Debug\net8.0-windows\Microsoft.Web.WebView2.WinForms.dll
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\bin\Debug\net8.0-windows\Microsoft.Web.WebView2.Wpf.dll
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\bin\Debug\net8.0-windows\Microsoft.Web.WebView2.Core.xml
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\bin\Debug\net8.0-windows\Microsoft.Web.WebView2.WinForms.xml
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\bin\Debug\net8.0-windows\Microsoft.Web.WebView2.Wpf.xml
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\obj\Debug\net8.0-windows\ProyectoEstupido.csproj.AssemblyReference.cache
+C:\Users\anama\OneDrive - UPB\ProyectoEstupido\obj\Debug\net8.0-windows\Proyecto.A5710816.Up2Date
