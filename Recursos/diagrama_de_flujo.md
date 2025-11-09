@@ -17,3 +17,4 @@ graph TD
         K --> L(FormConfirmacion Cerrado);
         L --> M[Habilitar FormInicio (this.Enabled = true)];
     end 
+```
