@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\anama\\OneDrive - UPB\\ProyectoEstupido\\ProyectoEstupido.csproj": {}
+    "C:\\Users\\anama\\OneDrive - UPB\\ProyectoEstupido\\Proyecto-final_PDP\\ProyectoEstupido.csproj": {}
   },
   "projects": {
-    "C:\\Users\\anama\\OneDrive - UPB\\ProyectoEstupido\\ProyectoEstupido.csproj": {
+    "C:\\Users\\anama\\OneDrive - UPB\\ProyectoEstupido\\Proyecto-final_PDP\\ProyectoEstupido.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\anama\\OneDrive - UPB\\ProyectoEstupido\\ProyectoEstupido.csproj",
+        "projectUniqueName": "C:\\Users\\anama\\OneDrive - UPB\\ProyectoEstupido\\Proyecto-final_PDP\\ProyectoEstupido.csproj",
         "projectName": "ProyectoEstupido",
-        "projectPath": "C:\\Users\\anama\\OneDrive - UPB\\ProyectoEstupido\\ProyectoEstupido.csproj",
+        "projectPath": "C:\\Users\\anama\\OneDrive - UPB\\ProyectoEstupido\\Proyecto-final_PDP\\ProyectoEstupido.csproj",
         "packagesPath": "C:\\Users\\anama\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\anama\\OneDrive - UPB\\ProyectoEstupido\\obj\\",
+        "outputPath": "C:\\Users\\anama\\OneDrive - UPB\\ProyectoEstupido\\Proyecto-final_PDP\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
