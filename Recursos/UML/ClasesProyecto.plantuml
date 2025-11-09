@@ -107,7 +107,24 @@ class PreguntaCaptcha {
 
 FormCaptcha *-- PreguntaCaptcha : "contiene"
 
-class FormPanelUniverso
+' === CLASE FormPanelUniverso ===
+class FormPanelUniverso {
+  - random : Random
+  - cargando : bool
+
+  + FormPanelUniverso()
+  - FormPanelUniverso_Load(sender, e) : void
+  - btnArriba_Click(sender, e) : void
+  - btnAbajo_Click(sender, e) : void
+  - btnIzquierda_Click(sender, e) : void
+  - btnDerecha_Click(sender, e) : void
+  - btnResbalarPinguino_Click(sender, e) : void
+  - btnSubirPan_Click(sender, e) : void
+  - btnReiniciarUniverso_Click(sender, e) : void
+  - EjecutarAccionConCarga(mensajeInicial : string, mensajeFinal : string) : void
+  - PosicionarAleatoriamente() : void
+}
+
 
 
 ' === HERENCIA ===
@@ -176,6 +193,16 @@ note right of FormCaptcha
 Formulario final de validación tipo Captcha.
 Contiene varias preguntas con validaciones personalizadas
 (encapsuladas en la clase interna PreguntaCaptcha).
+end note
+
+note right of FormPanelUniverso
+Último formulario del flujo.
+Simula un "Panel de control del universo" con botones interactivos.
+Cada acción ejecuta una animación con una barra de carga
+y un mensaje humorístico al finalizar.
+
+No crea nuevos formularios.
+Recibe el flujo desde FormCaptcha.
 end note
 
 @enduml
