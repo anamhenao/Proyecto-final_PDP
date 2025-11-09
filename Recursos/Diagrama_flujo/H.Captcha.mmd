@@ -1,0 +1,59 @@
+sequenceDiagram
+    participant User
+    participant Application
+    participant FileSystem
+
+    note over User, Application: Desde FormNacimiento
+    rect rgb(230, 230, 255)
+    note over Application: Validación de Captcha Interactivo
+
+    Application->>Application: 1.1: Constructor(nombre, contraseña, esNuevo)
+    Application->>Application: 1.2: PosicionarAleatoriamente()
+    Application->>Application: 1.3: InicializarPreguntas()
+    Application->>Application: 1.4: FormCaptcha_Load()
+    Application->>Application: 1.5: MostrarPregunta() → Primera pregunta visible para el usuario
+    end
+
+    %% 🟢 Interacción del Usuario
+    loop Mientras haya preguntas pendientes
+        User->>Application: 2.1: Escribir respuesta y presionar btnEnviar
+        Application->>Application: 2.2: Validar respuesta actual
+
+        alt Respuesta vacía
+            Application->>User: Mostrar “¿Demasiado difícil la pregunta?”
+        else Respuesta correcta
+            Application->>User: Mostrar “¡Correcto!”
+            Application->>Application: Avanzar()
+            alt Quedan preguntas
+                Application->>Application: Mostrar siguiente pregunta
+            else Última pregunta
+                alt Es nuevo usuario
+                    Application->>FileSystem: GuardarUsuario()
+                    Application->>FileSystem: Crear carpeta “Recursos” si no existe
+                    Application->>FileSystem: Escribir/Actualizar archivo “usuarios.txt”
+                    FileSystem-->>Application: Confirmación de guardado
+                    Application->>User: Mensaje “Registro completado”
+                else Usuario ya registrado
+                    Application->>User: Mensaje “Usuario existente”
+                end
+                Application->>Application: Crear FormPanelUniverso()
+                Application->>Application: Ocultar FormCaptcha
+                Application->>Application: Mostrar FormPanelUniverso
+            end
+        else Respuesta incorrecta
+            Application->>User: Mostrar mensaje de error específico
+        end
+    end
+
+    %% 📁 Guardado y Errores
+    alt Error al guardar usuario
+        Application->>User: Mostrar mensaje “Error al guardar el usuario”
+    end
+
+    note over Application: 🧩 Ventana posicionada aleatoriamente (PosicionarAleatoriamente)
+    Alt
+    Application->>Application: StartPosition
+    Application->>Application: Randomizar coordenadas
+    end
+
+    note over User, Application: CONTINÚA en FormPanelUniverso

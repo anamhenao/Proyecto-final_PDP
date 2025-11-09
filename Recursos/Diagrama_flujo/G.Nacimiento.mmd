@@ -1,0 +1,52 @@
+sequenceDiagram
+    participant User
+    participant Application
+
+    %% 🟦 FormNacimiento.cs
+    note over User, Application: INICIA desde el éxito de FormContrasena
+
+    rect rgb(200, 240, 255)
+    note over Application: 🧩 Generación de Fecha de Nacimiento Aleatoria
+
+    Application->>Application: 1.1: Constructor(nombreUsuario, contraseña)
+    Application->>Application: 1.2: PosicionarAleatoriamente()
+    Application->>Application: 1.3: Definir fechaMin = 1900-01-01
+    Application->>Application: 1.4: Definir fechaMax = 2025-12-31
+
+    Application->>Application: 1.5: FormNacimiento_Load()
+    Application->>Application: 1.6: GenerarNuevaFecha()
+    Application->>User: Mostrar pregunta “¿Naciste antes o después del {fechaActual}?“
+
+    loop Mientras rango de fechas > 1 día
+        alt Usuario elige “Antes”
+            User->>Application: 2.1: Clic en btnAntes
+            Application->>Application: 2.2: fechaMax = fechaActual
+        else Usuario elige “Después”
+            User->>Application: 2.3: Clic en btnDespues
+            Application->>Application: 2.4: fechaMin = fechaActual
+        end
+        Application->>Application: 2.5: VerificarRango()
+        alt Rango > 1 día
+            Application->>Application: GenerarNuevaFecha()
+            Application->>User: Mostrar nueva pregunta
+        else Rango ≤ 1 día
+            Application->>Application: Finalizar(fechaMin + 1 día)
+        end
+    end
+
+    alt Usuario presiona “Continuar”
+        User->>Application: 3.1: Clic en btnContinuar
+        Application->>Application: 3.2: Finalizar(fechaActual)
+    end
+
+    note over Application: 🕒 Finalización con Temporizador (delay)
+    Application->>Application: 4.1: Mostrar lblResultado “Fecha estimada: …”
+    Application->>Application: 4.2: Deshabilitar botones y pregunta
+    Application->>Application: 4.3: Iniciar Timer (2s)
+    Application->>Application: 4.4: Al Tick del Timer → Crear FormCaptcha(nombre, contraseña, true)
+    Application->>Application: 4.5: Mostrar FormCaptcha
+    Application->>Application: 4.6: Deshabilitar FormNacimiento
+    end
+
+    note over User, Application: CONTINÚA en FormCaptcha
+

@@ -1,0 +1,62 @@
+sequenceDiagram
+    participant  User
+    participant  Application
+
+
+    %% 🔠 Desde FormUser.cs
+    rect rgb(255, 230, 230)
+    note over  User,Application: 🧩 Transición desde FormUser.cs (Nombre Válido)
+     User->> Application: Ingresar nombre válido
+     Application->> Application: Crear FormContrasena(nombreUser)
+     Application->> Application: Deshabilitar FormUser
+     Application->> Application: Mostrar FormContrasena
+    end
+
+
+    %% 🔒 FormContrasena.cs
+    rect rgb(200, 255, 200)
+    note over  Application: 🟢 Flujo FormContrasena.cs (Validación de Contraseña)
+     Application-->> Application: Constructor(nombreUser)
+     Application-->> Application: PosicionarAleatoriamente()
+     Application-->> Application: lblMensaje = "Bienvenido, {nombreUser}..."
+    
+    loop Mientras contraseña inválida
+         User->> Application: Ingresa contraseña y clic en "Aceptar"
+         Application->> Application: Validar requisitos de contraseña
+        alt Longitud < 6
+             Application->> User: "Demasiado corta"
+        else Sin vocal
+             Application->> User: "Debe contener al menos una vocal"
+        else Sin número primo (2,3,5,7)
+             Application->> User: "Debe contener un número primo menor a 10"
+        else Contiene palabra "contraseña"
+             Application->> User: "No puedes usar literalmente 'contraseña'"
+        else Solo letras o dígitos
+             Application->> User: "Agrega un símbolo especial como @ o #"
+        else Empieza con el nombre del User
+             Application->> User: "No uses tu nombre al inicio"
+        else Termina en número
+             Application->> User: "Terminar con un número es predecible"
+        else Tiene tres caracteres iguales seguidos
+             Application->> User: "Tres caracteres iguales seguidos"
+        else Es palíndroma
+             Application->> User: "Contraseña palíndroma, poco segura"
+        else Sin letras exóticas (ñ, w, k, z)
+             Application->> User: "Agrega una letra exótica (ñ, w, k o z)"
+        end
+    end
+
+    alt Contraseña válida
+         Application->> User: "Sorprendente, has creado una contraseña robusta"
+         Application->> Application: Crear FormNacimiento(nombreUser, contraseña)
+         Application->> Application: Deshabilitar FormContrasena
+         Application->> Application: Mostrar FormNacimiento
+    end
+    end
+
+
+    %% 🎂 Transición hacia FormCaptcha.cs
+    rect rgb(220, 255, 255)
+    note over  User,Application: 🧭 Continuación en FormNacimiento
+
+    end

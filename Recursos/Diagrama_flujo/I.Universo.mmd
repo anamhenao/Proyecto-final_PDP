@@ -1,0 +1,41 @@
+sequenceDiagram
+    participant User
+    participant Application
+
+    %% 🌌 FormPanelUniverso.cs
+    note over User, Application: INICIA desde el éxito de FormCaptcha (último paso del registro)
+
+    rect rgb(230,255,230)
+    note over Application: 🪐 Panel de Control del Universo
+    Application->>Application: 1.1: Constructor FormPanelUniverso()
+    Application->>Application: 1.2: PosicionarAleatoriamente()
+    Application->>Application: 1.3: FormPanelUniverso_Load()
+    Application->>Application: 1.4: Configurar lblTitulo, lblEstado, fuentes y estilos
+    end
+
+
+    %% 🎮 Interacciones del usuario
+    loop Mientras el usuario experimente el panel
+        User->>Application: Presionar botón (Arriba / Abajo / Izquierda / Derecha / ResbalarPingüino / SubirPan / ReiniciarUniverso)
+        Application->>Application: EjecutarAccionConCarga(mensajeInicial, mensajeFinal)
+
+        alt cargando = true
+            Application->>User: Ignorar clics adicionales hasta finalizar
+        else cargando = false
+            Application->>Application: Mostrar lblEstado (amarillo)
+            Application->>Application: Crear ProgressBar (50ms interval)
+            loop Hasta completar barra
+                Application->>Application: Incrementar progreso aleatoriamente (5-20)
+            end
+            Application->>Application: Eliminar barra de carga
+            Application->>User: Mostrar mensajeFinal (verde)
+        end
+    end
+
+    %% 💫 Posicionamiento aleatorio del panel
+    note over Application: PosicionarAleatoriamente()
+    Application->>Application: Calcular coordenadas aleatorias (X, Y)
+    Application->>Application: StartPosition = Manual
+
+    note over User, Application: FIN DEL FLUJO PRINCIPAL 🧠✨  
+
