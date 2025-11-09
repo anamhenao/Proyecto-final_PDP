@@ -1,0 +1,181 @@
+@startuml
+' === CONFIGURACIÓN VISUAL ===
+skinparam classAttributeIconVisible false
+skinparam classFontSize 13
+skinparam shadowing false
+skinparam dpi 150
+top to bottom direction
+
+' === CLASE BASE ===
+class Form {
+}
+
+' === CLASES DE FORMULARIO ===
+class FormInicio {
+  - random : Random
+
+  + FormInicio()
+  + PosicionarAleatoriamente() : void
+  - btnLogin_Click(sender, e) : void
+  - btnRegistro_Click(sender, e) : void
+}
+
+class FormInicioSesion {
+  - rutaArchivo : string
+
+  + FormInicioSesion()
+  - PrepararArchivo() : void
+  - FormInicioSesion_Load(sender, e) : void
+  - btnIniciarSesion_Click(sender, e) : void
+  - PosicionarAleatoriamente() : void
+}
+
+class FormConfirmacion {
+  - pasoActual : int
+  - random : Random
+  - mensajes : List<string>
+
+  + FormConfirmacion(paso = 0)
+  - FormConfirmacion_Load(sender, e) : void
+  - IniciarFadeIn() : void
+  - MostrarMensajeActual() : void
+  - PosicionarAleatoriamente() : void
+  - btnSi_Click(sender, e) : void
+  - btnNo_Click(sender, e) : void
+}
+
+class FormUsuario {
+  + FormUsuario()
+  - btnContinuar_Click(sender, e) : void
+  - MostrarMensaje(texto : string) : void
+  - PosicionarAleatoriamente() : void
+  - FormUsuario_Load(sender, e) : void
+}
+
+class FormContrasena {
+  - nombreUsuario : string
+
+  + FormContrasena(nombre : string)
+  - FormContrasena_Load(sender, e) : void
+  - btnAceptar_Click(sender, e) : void
+  - PosicionarAleatoriamente() : void
+}
+
+class FormNacimiento {
+  - _nombreUsuario : string
+  - _contraseña : string
+  - fechaMin : DateTime
+  - fechaMax : DateTime
+  - fechaActual : DateTime
+  - random : Random
+
+  + FormNacimiento(nombre : string, contraseña : string)
+  - FormNacimiento_Load(sender, e) : void
+  - GenerarNuevaFecha() : void
+  - btnAntes_Click(sender, e) : void
+  - btnDespues_Click(sender, e) : void
+  - btnContinuar_Click(sender, e) : void
+  - VerificarRango() : void
+  - Finalizar(fecha : DateTime) : void
+  - PosicionarAleatoriamente() : void
+}
+
+' === DETALLE DE FormCaptcha ===
+class FormCaptcha {
+  - _nombreUsuario : string
+  - _contraseñaUsuario : string
+  - _esNuevoUsuario : bool
+  - indicePregunta : int
+  - preguntas : List<PreguntaCaptcha>
+  + FormCaptcha(nombre : string, contraseña : string, esNuevo : bool)
+  - InicializarPreguntas()
+  - MostrarPregunta()
+  - btnEnviar_Click(sender, e)
+  - MostrarResultado(texto : string, exito : bool)
+  - Avanzar()
+  - GuardarUsuario()
+  - PosicionarAleatoriamente()
+}
+
+' Clase interna anidada
+class PreguntaCaptcha {
+  + Texto : string
+  + Validacion : Func<string,bool>
+  + MensajeError : string
+  + PreguntaCaptcha(texto, validacion, mensajeError)
+}
+
+FormCaptcha *-- PreguntaCaptcha : "contiene"
+
+class FormPanelUniverso
+
+
+' === HERENCIA ===
+FormInicio --|> Form
+FormInicioSesion --|> Form
+FormConfirmacion --|> Form
+FormUsuario --|> Form
+FormContrasena --|> Form
+FormNacimiento --|> Form
+FormCaptcha --|> Form
+FormPanelUniverso --|> Form
+
+
+' === RELACIONES ===
+' --- CREACIÓN Y USO ---
+FormInicio *-- FormInicioSesion : crea y muestra
+FormInicio *-- FormConfirmacion : crea y muestra
+FormConfirmacion *-- FormUsuario : crea al finalizar pasos
+FormUsuario *-- FormContrasena : crea y muestra
+FormContrasena *-- FormNacimiento : crea y muestra
+FormNacimiento *-- FormCaptcha : crea y muestra con retraso
+
+' --- AUTOINSTANCIACIÓN ---
+FormConfirmacion *-- FormConfirmacion : crea siguiente/previo paso
+
+' --- ASOCIACIONES ---
+FormInicioSesion --> FormCaptcha : abre tras login exitoso
+FormInicioSesion --> FormInicio : regresa si usuario no existe
+FormCaptcha --> FormPanelUniverso : fin de login/registro exitoso
+
+
+' === NOTAS ACLARATORIAS ===
+note right of FormInicio
+Formulario inicial.
+Permite elegir entre iniciar sesión o registrarse.
+end note
+
+note right of FormInicioSesion
+Valida credenciales desde archivo usuarios.txt.
+Abre FormCaptcha si el login es correcto.
+end note
+
+note right of FormConfirmacion
+Serie de confirmaciones previas al registro.
+Crea nuevas instancias de sí misma (siguiente o anterior paso)
+y finalmente abre FormUsuario.
+end note
+
+note right of FormUsuario
+Valida el nombre del usuario con múltiples reglas.
+Si es aceptado, crea y muestra FormContrasena(nombre).
+end note
+
+note right of FormContrasena
+Valida la fortaleza de la contraseña con condiciones humorísticas.
+Si es válida, crea y muestra FormNacimiento(nombre, contraseña).
+end note
+
+note right of FormNacimiento
+Formulario que “adivina” la fecha de nacimiento del usuario.
+Genera fechas aleatorias entre 1900 y 2025 hasta reducir el rango.
+Al finalizar, abre FormCaptcha con los datos previos.
+end note
+
+note right of FormCaptcha
+Formulario final de validación tipo Captcha.
+Contiene varias preguntas con validaciones personalizadas
+(encapsuladas en la clase interna PreguntaCaptcha).
+end note
+
+@enduml
