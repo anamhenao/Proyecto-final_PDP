@@ -1,20 +1,8 @@
-```mermaid
-graph TD
-subgraph "FormInicio.cs (C# Frontend)"
-	A[App Inicia / Constructor] --> B[Inicializar Componentes]
-	B --> C[Llamar PosicionarAleatoriamente]
-	C --> D{Formulario se Muestra en Posición Random}
+# Diagrama de Flujo del Proyecto Estúpido
 
-	D --> E{Usuario Hace Clic}
+Este diagrama muestra cómo el usuario se frustra al inicio.
 
-	E -- "Clic en 'Login' (btnLogin_Click)" --> F[Crear FormInicioSesion]
-	F --> G[Mostrar FormInicioSesion]
-	G --> H[Ocultar FormInicio]
+<!-- [MermaidChart: 0a677773-681a-4dfb-9991-638fc70919ea] -->
 
-	E -- "Clic en 'Registro' (btnRegistro_Click)" --> I[Crear FormConfirmacion]
-	I --> J[Deshabilitar FormInicio (this.Enabled = false)]
-	J --> K[Mostrar FormConfirmacion]
-	K --> L[FormConfirmacion Cerrado]
-	L --> M[Habilitar FormInicio (this.Enabled = true)]
-end
-```
+
+
