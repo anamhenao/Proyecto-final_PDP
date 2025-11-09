@@ -1,0 +1,29 @@
+sequenceDiagram
+    participant User
+    participant Application
+    participant FileSystem
+
+    note over User, Application: INICIA desde el éxito de FormConfirmacion
+    
+    rect rgb(255, 200, 200)
+    note over Application: Flujo FormUsuario.cs (Registro de Nombre)
+    Application-->>Application: 1: Constructor FormUsuario()
+    Application-->>Application: 2: PosicionarAleatoriamente
+    Application-->>Application: 3: Formulario es mostrado al usuario
+    end
+    
+    loop Mientras la validación del Nombre falla
+        User->>Application: 4.1: Ingresar Nombre y Clic en Continuar (btnContinuar_Click)
+        Application-->>Application: 4.2: Validar Nombre (Largo, Dígitos, Símbolos, Mayúsculas, etc.)
+        alt Validación Falla
+            Application-->>Application: 4.3: MostrarMensajeAleatorio(Error)
+            Application->>User: 4.4: Mostrar Error en lblResultado
+        end
+    end
+    
+    User->>Application: 5.1: Ingresar Nombre Válido
+    Application->>Application: 5.2: MostrarMensaje("Aceptado (por ahora)")
+    Application->>Application: 5.3: Crear FormContrasena(nombre)
+    Application->>Application: 5.4: Deshabilitar FormUsuario
+    Application->>Application: 5.5: Mostrar FormContrasena
+    note over User, Application: CONTINÚA en FormContrasena
