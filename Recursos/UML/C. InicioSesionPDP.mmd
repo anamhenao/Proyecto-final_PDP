@@ -1,0 +1,61 @@
+sequenceDiagram
+    participant User
+    participant Application
+    participant FileSystem
+
+    rect rgb(255, 240, 230)
+    note over Application: Constructor FormInicioSesion()
+    Application->>Application: 1: InitializeComponent()
+    Application->>Application: 2: PosicionarAleatoriamente()
+    Application-->>Application: 3: Definir rutaArchivo (usuarios.txt)
+    Application->>Application: 4: PrepararArchivo()
+    
+        alt Archivo NO Existe
+        Application->>FileSystem: 4.1: Verificar existencia (File.Exists)
+        FileSystem-->>Application: 4.2: NO Existe
+        Application->>FileSystem: 4.3: Crear Directorio/Archivo vacío
+        end
+    end
+    
+    User->>Application: 5: Usuario Abre Formulario (Load)
+    Application-->>Application: 6: Configurar Título/Fuente
+
+    User->>Application: 7: Ingresar Credenciales y Clic en Iniciar Sesión (btnIniciarSesion_Click)
+    Application-->>Application: 8: Obtener txtUsuario y txtContrasena
+
+    alt Campos Vacíos
+        Application->>User: 9.1: Mostrar MessageBox ("¿Vacío? Debes ingresar...")
+        Application-->>User: 9.2: Flujo Termina / Retorna
+    end
+    
+    Application->>FileSystem: 10: Leer todas las líneas de rutaArchivo
+    
+    loop por cada línea en el archivo
+        Application-->>Application: 11.1: Buscar Usuario y Contraseña
+        alt Usuario Encontrado
+            Application-->>Application: 11.2: Setear 'usuarioEncontrado = true'
+            alt Contraseña Correcta
+                Application-->>Application: 11.3: Setear 'contrasenaCorrecta = true'
+                Application-->>Application: 11.4: BREAK Loop
+            end
+        end
+    end
+    
+    alt Usuario y Contraseña Correctos
+        Application->>User: 12.1: MessageBox ("Identidad confirmada...")
+        Application->>Application: 12.2: Crear FormCaptcha
+        Application->>Application: 12.3: Mostrar FormCaptcha
+        Application->>User: 12.4: Ocultar FormInicioSesion
+        note over User, Application: CONTINÚA en FormCaptcha (Modo Login)
+    else Usuario NO Encontrado
+        Application->>User: 13.1: Mostrar MessageBox ("El usuario no existe. ¿Registrarse?")
+        User->>Application: 13.2: Respuesta DialogResult
+        alt Respuesta = YES
+            Application->>Application: 13.3: Crear FormInicio
+            Application->>Application: 13.4: Mostrar FormInicio
+            Application->>User: 13.5: Ocultar FormInicioSesion
+            note over User, Application: RETORNA a FormInicio
+        end
+    else Contraseña Incorrecta
+        Application->>User: 14.1: MessageBox ("Contraseña incorrecta...")
+    end

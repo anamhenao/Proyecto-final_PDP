@@ -1,0 +1,30 @@
+---
+id: 0a677773-681a-4dfb-9991-638fc70919ea
+---
+sequenceDiagram
+    participant User
+    participant Application
+
+    rect rgb(230, 230, 255)
+    note over Application: Inicio del Formulario (FormInicio.cs)
+    Application-->>Application: 1: Inicializar Componentes
+    Application-->>Application: 2: Llamar PosicionarAleatoriamente
+    end
+
+    User->>Application: 3: Formulario se Muestra en Posición Random
+
+    alt Clic en 'Login' (btnLogin_Click)
+        User->>Application: 4.1: Clic en Login
+        Application->>Application: 4.2: Crear FormInicioSesion
+        Application->>Application: 4.3: Mostrar FormInicioSesion
+        Application->>User: 4.4: Ocultar FormInicio
+        note over User, Application: CONTINÚA en FormInicioSesion
+    else Clic en 'Registro' (btnRegistro_Click)
+        User->>Application: 5.1: Clic en Registro
+        Application->>Application: 5.2: Crear FormConfirmacion
+        Application->>Application: 5.3: Deshabilitar FormInicio
+        Application->>Application: 5.4: Mostrar FormConfirmacion
+        Note over User, Application: El flujo espera a que se cierre FormConfirmacion (Manejo de eventos)
+        Application->>Application: 5.5: Habilitar FormInicio
+        note over User, Application: CONTINÚA en FormConfirmacion
+    end

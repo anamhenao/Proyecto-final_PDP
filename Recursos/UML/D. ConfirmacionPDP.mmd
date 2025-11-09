@@ -1,0 +1,44 @@
+sequenceDiagram
+    participant User
+    participant Application
+
+    rect rgb(220, 255, 220)
+    note over Application: Flujo FormConfirmacion.cs (Advertencias de Registro)
+    Application-->>Application: 1: Constructor FormConfirmacion(paso=0)
+    Application-->>Application: 2: MostrarMensajeActual(0)
+    Application-->>Application: 3: PosicionarAleatoriamente
+    Application-->>Application: 4: IniciarFadeIn (Opacidad 0 -> 1)
+    end
+    
+    User->>Application: 5: FormConfirmacion Muestra [Mensaje 0]
+
+    loop Mientras pasoActual < mensajes.Count - 1
+        User->>Application: 6.1: Clic en 'SI' (btnSi_Click)
+        Application-->>Application: 6.2: pasoActual++
+        Application->>Application: 6.3: Crear FormConfirmacion(pasoActual)
+        Application->>Application: 6.4: Deshabilitar FormAnterior
+        Application->>Application: 6.5: Mostrar FormConfirmacion Siguiente
+    end
+    
+    alt Clic en 'SI' (Último Mensaje)
+        User->>Application: 7.1: Clic en SI
+        Application->>Application: 7.2: Crear FormUsuario
+        Application->>Application: 7.3: Deshabilitar FormConfirmacion
+        Application->>Application: 7.4: Mostrar FormUsuario (Registro de credenciales)
+        note over User, Application: CONTINÚA en FormUsuario
+    else Clic en 'NO' (btnNo_Click)
+        alt pasoActual > 0 (Retroceder en Mensajes)
+            loop Retroceder
+                User->>Application: 8.1: Clic en NO
+                Application-->>Application: 8.2: pasoActual--
+                Application->>Application: 8.3: Crear FormConfirmacion(pasoActual)
+                Application->>Application: 8.4: Mostrar FormConfirmacion Anterior
+            end
+        else pasoActual == 0 (Cancelar Registro)
+            User->>Application: 9.1: Clic en NO (Primer Mensaje)
+            Application->>User: 9.2: Mostrar MessageBox ("Sabia decisión")
+            Application->>Application: 9.3: Cerrar FormConfirmacion
+            Application->>Application: 9.4: Habilitar FormInicio (Manejo de FormClosed)
+            note over User, Application: RETORNA a FormInicio
+        end
+    end
