@@ -31,4 +31,4 @@ Realizado por Ana Maria Henao, Ismael Lopez y Miguel Angel Usuga. Estudiantes de
 - `README.md`: Este archivo de documentación del proyecto.
 - `Recursos/`: Contiene recursos adicionales como diagramas y documentación.
 
-<!-- [MermaidChart: 0a677773-681a-4dfb-9991-638fc70919ea] -->
+
