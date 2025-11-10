@@ -10,6 +10,10 @@ El proyecto consiste en una aplicación cuyo objetivo es brindar a los usuarios 
 - .NET Framework
 - Windows Forms
 - Visual Studio
+- Visual Studio Code
+- Git y GitHub
+- Mermaid
+- PlantUML
 ## Instalación
 1. Clona este repositorio en tu máquina local.
 2. Abre el proyecto en Visual Studio.
