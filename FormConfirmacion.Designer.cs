@@ -35,32 +35,78 @@
             // 
             // lblMensaje
             // 
-            lblMensaje.AutoSize = true;
-            lblMensaje.Location = new Point(127, 55);
-            lblMensaje.Name = "lblMensaje";
-            lblMensaje.Size = new Size(50, 20);
-            lblMensaje.TabIndex = 0;
-            lblMensaje.Text = "label1";
-            // 
-            // btnSi
-            // 
-            btnSi.Location = new Point(127, 162);
-            btnSi.Name = "btnSi";
-            btnSi.Size = new Size(94, 29);
-            btnSi.TabIndex = 1;
-            btnSi.Text = "Si";
-            btnSi.UseVisualStyleBackColor = true;
+                // ===== FORM =====
+            BackColor = Color.FromArgb(15, 15, 25);
+            ClientSize = new Size(500, 250);
+            Font = new Font("Segoe UI", 10);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Confirmación";
+            MaximizeBox = false;
+            MinimizeBox = false;
+
+            // ===== LABEL MENSAJE =====
+            lblMensaje.AutoSize = false;
+            lblMensaje.Font = new Font("Segoe UI", 14, FontStyle.Bold);
+            lblMensaje.ForeColor = Color.FromArgb(0, 255, 255);
+            lblMensaje.TextAlign = ContentAlignment.MiddleCenter;
+            lblMensaje.Location = new Point(40, 40);
+            lblMensaje.Size = new Size(420, 60);
+            lblMensaje.Text = "¿Deseas continuar?";
+
+            // ===== BOTÓN SÍ =====
+            btnSi.Font = new Font("Segoe UI", 12, FontStyle.Bold);
+            btnSi.BackColor = Color.FromArgb(20, 20, 30);
+            btnSi.ForeColor = Color.FromArgb(0, 255, 255);
+            btnSi.FlatStyle = FlatStyle.Flat;
+            btnSi.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255);
+            btnSi.FlatAppearance.BorderSize = 2;
+            btnSi.Location = new Point(85, 150);
+            btnSi.Size = new Size(130, 40);
+            btnSi.Text = "SÍ";
+            btnSi.Cursor = Cursors.Hand;
+
+            btnSi.MouseEnter += (s, e) =>
+            {
+                btnSi.ForeColor = Color.FromArgb(0, 255, 180);
+                btnSi.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 180);
+            };
+
+            btnSi.MouseLeave += (s, e) =>
+            {
+                btnSi.ForeColor = Color.FromArgb(0, 255, 255);
+                btnSi.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255);
+            };
+
             btnSi.Click += btnSi_Click;
-            // 
-            // btnNo
-            // 
-            btnNo.Location = new Point(324, 162);
-            btnNo.Name = "btnNo";
-            btnNo.Size = new Size(94, 29);
-            btnNo.TabIndex = 2;
-            btnNo.Text = "No";
-            btnNo.UseVisualStyleBackColor = true;
+
+
+            // ===== BOTÓN NO =====
+            btnNo.Font = new Font("Segoe UI", 12, FontStyle.Bold);
+            btnNo.BackColor = Color.FromArgb(20, 20, 30);
+            btnNo.ForeColor = Color.FromArgb(255, 80, 80);
+            btnNo.FlatStyle = FlatStyle.Flat;
+            btnNo.FlatAppearance.BorderColor = Color.FromArgb(255, 80, 80);
+            btnNo.FlatAppearance.BorderSize = 2;
+            btnNo.Location = new Point(285, 150);
+            btnNo.Size = new Size(130, 40);
+            btnNo.Text = "NO";
+            btnNo.Cursor = Cursors.Hand;
+
+            btnNo.MouseEnter += (s, e) =>
+            {
+                btnNo.ForeColor = Color.FromArgb(255, 120, 120);
+                btnNo.FlatAppearance.BorderColor = Color.FromArgb(255, 120, 120);
+            };
+
+            btnNo.MouseLeave += (s, e) =>
+            {
+                btnNo.ForeColor = Color.FromArgb(255, 80, 80);
+                btnNo.FlatAppearance.BorderColor = Color.FromArgb(255, 80, 80);
+            };
+
             btnNo.Click += btnNo_Click;
+
             // 
             // FormConfirmacion
             // 
