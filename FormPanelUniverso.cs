@@ -14,6 +14,11 @@ namespace ProyectoEstupido
         public FormPanelUniverso()
         {
             InitializeComponent();
+            // 🔧 Asegurar tamaño estable del formulario
+            /*this.Size = new Size(1378, 779);
+            this.MaximumSize = this.Size;
+            this.MinimumSize = this.Size;
+            */
             PosicionarAleatoriamente();
         }
 

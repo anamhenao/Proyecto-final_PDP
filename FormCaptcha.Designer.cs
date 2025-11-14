@@ -38,8 +38,11 @@
             SuspendLayout();
 
             // ==== FORM ====
-            BackColor = Color.FromArgb(15, 15, 25); 
-            ClientSize = new Size(700, 400);
+            BackColor = Color.FromArgb(15, 15, 25);
+            this.ClientSize = new Size(700, 420);
+            this.MaximumSize = new Size(700, 420);
+            this.MinimumSize = new Size(700, 420);
+
             FormBorderStyle = FormBorderStyle.FixedSingle;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Verificación Humana";
