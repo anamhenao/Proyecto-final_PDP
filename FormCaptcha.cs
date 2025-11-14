@@ -157,8 +157,8 @@ namespace ProyectoEstupido
                     File.WriteAllText(rutaArchivo, "");
 
                 var lineas = File.ReadAllLines(rutaArchivo)
-                                 .Where(l => !string.IsNullOrWhiteSpace(l))
-                                 .ToList();
+                                .Where(l => !string.IsNullOrWhiteSpace(l))
+                                .ToList();
 
                 bool existe = lineas.Any(l =>
                 {
@@ -169,29 +169,32 @@ namespace ProyectoEstupido
                 if (!existe)
                 {
                     File.AppendAllText(rutaArchivo, $"{_nombreUsuario};{_contraseñaUsuario}{Environment.NewLine}");
-                    MessageBox.Show($"Usuario '{_nombreUsuario}' registrado exitosamente.",
-                        "Registro completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CustomMessageBox.Mostrar($"Usuario '{_nombreUsuario}' registrado exitosamente.");
                 }
                 else
                 {
-                    MessageBox.Show($"El usuario '{_nombreUsuario}' ya está registrado. No se añadió nuevamente.",
-                        "Usuario existente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    CustomMessageBox.Mostrar($"El usuario '{_nombreUsuario}' ya está registrado. No se añadió nuevamente.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al guardar el usuario: " + ex.Message,
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CustomMessageBox.Mostrar("Error al guardar el usuario: " + ex.Message);
             }
         }
 
         // Posiciona la ventana de forma aleatoria en la pantalla
         private void PosicionarAleatoriamente()
         {
-            Random random = new Random();
             var screen = Screen.PrimaryScreen.WorkingArea;
-            int randomX = random.Next(screen.Left, screen.Right - this.Width);
-            int randomY = random.Next(screen.Top, screen.Bottom - this.Height);
+
+            // Asegurar valores válidos
+            int maxX = Math.Max(screen.Left, screen.Right - this.Width);
+            int maxY = Math.Max(screen.Top, screen.Bottom - this.Height);
+
+            Random rnd = new Random();
+
+            int randomX = rnd.Next(screen.Left, maxX);
+            int randomY = rnd.Next(screen.Top, maxY);
 
             this.StartPosition = FormStartPosition.Manual;
             this.Left = randomX;

@@ -110,6 +110,8 @@ namespace ProyectoEstupido
                 this.Enabled = false;
                 FormCaptcha captcha = new FormCaptcha(_nombreUsuario, _contraseña, true);
                 captcha.Show();
+
+                this.Close();
             };
             delay.Start();
         }

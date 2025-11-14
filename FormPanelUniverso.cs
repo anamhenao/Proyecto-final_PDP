@@ -189,14 +189,24 @@ namespace ProyectoEstupido
         // Posiciona la ventana de forma aleatoria en la pantalla
         private void PosicionarAleatoriamente()
         {
-            Random random = new Random();
             var screen = Screen.PrimaryScreen.WorkingArea;
-            int randomX = random.Next(screen.Left, screen.Right - this.Width);
-            int randomY = random.Next(screen.Top, screen.Bottom - this.Height);
+
+            // Evitar valores inválidos si el form aún no está completamente inicializado
+            int ancho = this.Width > 0 ? this.Width : 200;
+            int alto = this.Height > 0 ? this.Height : 200;
+
+            int maxX = Math.Max(screen.Left, screen.Right - ancho);
+            int maxY = Math.Max(screen.Top, screen.Bottom - alto);
+
+            Random rnd = new Random();
+
+            int randomX = rnd.Next(screen.Left, maxX + 1);
+            int randomY = rnd.Next(screen.Top, maxY + 1);
 
             this.StartPosition = FormStartPosition.Manual;
             this.Left = randomX;
             this.Top = randomY;
         }
+
     }
 }

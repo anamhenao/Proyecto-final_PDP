@@ -2,15 +2,8 @@
 {
     partial class FormPanelUniverso
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,10 +15,6 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             lblTitulo = new Label();
@@ -38,109 +27,156 @@
             btnReiniciarUniverso = new Button();
             lblEstado = new Label();
             SuspendLayout();
-            // 
-            // lblTitulo
-            // 
-            lblTitulo.Location = new Point(447, 72);
-            lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(309, 62);
-            lblTitulo.TabIndex = 0;
-            lblTitulo.Text = "Panel de Control del Universo";
-            // 
-            // btnArriba
-            // 
-            btnArriba.Location = new Point(620, 285);
-            btnArriba.Name = "btnArriba";
-            btnArriba.Size = new Size(94, 29);
-            btnArriba.TabIndex = 1;
+
+            // ============================
+            // FORM PROPIEDADES GENERALES
+            // ============================
+            this.BackColor = Color.FromArgb(5, 10, 25);
+            this.Font = new Font("Orbitron", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            this.ClientSize = new Size(1378, 779);
+
+            this.MaximumSize = new Size(1378, 779);
+            this.MinimumSize = new Size(1378, 779);
+
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+            // ============================
+            // TÍTULO
+            // ============================
+            lblTitulo = new Label();
+            lblTitulo.AutoSize = false;
+            lblTitulo.Width = this.ClientSize.Width;
+            lblTitulo.Height = 90;
+            lblTitulo.Location = new Point(0, 20);
+            lblTitulo.Text = "🪐 PANEL DEL UNIVERSO 🪐";
+            lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
+            lblTitulo.Font = new Font("Orbitron", 28F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTitulo.ForeColor = Color.FromArgb(0, 255, 255);
+
+            // ============================
+            // ESTILO BOTONES PRINCIPALES (direccionales)
+            // ============================
+            Color baseBtn = Color.FromArgb(40, 45, 70);
+            Color hoverBtn = Color.FromArgb(0, 255, 180);
+            Color textoBtn = Color.White;
+
+            Action<Button> estiloDireccion = (btn) =>
+            {
+                btn.BackColor = baseBtn;
+                btn.ForeColor = textoBtn;
+                btn.FlatStyle = FlatStyle.Flat;
+                btn.FlatAppearance.BorderSize = 0;
+                btn.Font = new Font("Arial Unicode MS", 26F, FontStyle.Bold, GraphicsUnit.Point); // unicode seguro para flechas
+                btn.Size = new Size(100, 80);
+
+                btn.MouseEnter += (s, e) => { btn.BackColor = hoverBtn; btn.ForeColor = Color.Black; };
+                btn.MouseLeave += (s, e) => { btn.BackColor = baseBtn; btn.ForeColor = textoBtn; };
+            };
+
+            // Centro para botones direccionales
+            int centroX = (this.ClientSize.Width / 2) - 50; // boton ancho 100
+            int centroY = 320;
+
+            // Arriba
+            btnArriba = new Button();
+            btnArriba.Location = new Point(centroX, centroY - 110);
+            estiloDireccion(btnArriba);
             btnArriba.Text = "↑";
-            btnArriba.UseVisualStyleBackColor = true;
-            btnArriba.Click += btnArriba_Click;
-            // 
-            // btnDerecha
-            // 
-            btnDerecha.Location = new Point(776, 415);
-            btnDerecha.Name = "btnDerecha";
-            btnDerecha.Size = new Size(94, 29);
-            btnDerecha.TabIndex = 2;
-            btnDerecha.Text = "→";
-            btnDerecha.UseVisualStyleBackColor = true;
-            btnDerecha.Click += btnDerecha_Click;
-            // 
-            // btnIzquierda
-            // 
-            btnIzquierda.Location = new Point(435, 415);
-            btnIzquierda.Name = "btnIzquierda";
-            btnIzquierda.Size = new Size(94, 29);
-            btnIzquierda.TabIndex = 3;
+            btnArriba.Click += new EventHandler(this.btnArriba_Click);
+
+            // Izquierda
+            btnIzquierda = new Button();
+            btnIzquierda.Location = new Point(centroX - 140, centroY);
+            estiloDireccion(btnIzquierda);
             btnIzquierda.Text = "←";
-            btnIzquierda.UseVisualStyleBackColor = true;
-            btnIzquierda.Click += btnIzquierda_Click;
-            // 
-            // btnAbajo
-            // 
-            btnAbajo.Location = new Point(620, 542);
-            btnAbajo.Name = "btnAbajo";
-            btnAbajo.Size = new Size(94, 29);
-            btnAbajo.TabIndex = 4;
+            btnIzquierda.Click += new EventHandler(this.btnIzquierda_Click);
+
+            // Derecha
+            btnDerecha = new Button();
+            btnDerecha.Location = new Point(centroX + 140, centroY);
+            estiloDireccion(btnDerecha);
+            btnDerecha.Text = "→";
+            btnDerecha.Click += new EventHandler(this.btnDerecha_Click);
+
+            // Abajo
+            btnAbajo = new Button();
+            btnAbajo.Location = new Point(centroX, centroY + 110);
+            estiloDireccion(btnAbajo);
             btnAbajo.Text = "↓";
-            btnAbajo.UseVisualStyleBackColor = true;
-            btnAbajo.Click += btnAbajo_Click;
-            // 
-            // btnResbalarPinguino
-            // 
-            btnResbalarPinguino.Location = new Point(83, 485);
-            btnResbalarPinguino.Name = "btnResbalarPinguino";
-            btnResbalarPinguino.Size = new Size(249, 29);
-            btnResbalarPinguino.TabIndex = 5;
-            btnResbalarPinguino.Text = "Hacer que un pinguino se resbale";
-            btnResbalarPinguino.UseVisualStyleBackColor = true;
-            btnResbalarPinguino.Click += btnResbalarPinguino_Click;
-            // 
-            // btnSubirPan
-            // 
-            btnSubirPan.Location = new Point(83, 564);
-            btnSubirPan.Name = "btnSubirPan";
-            btnSubirPan.Size = new Size(151, 29);
-            btnSubirPan.TabIndex = 7;
-            btnSubirPan.Text = "Subir el pan";
-            btnSubirPan.UseVisualStyleBackColor = true;
-            btnSubirPan.Click += btnSubirPan_Click;
-            // 
-            // btnReiniciarUniverso
-            // 
-            btnReiniciarUniverso.Location = new Point(83, 658);
-            btnReiniciarUniverso.Name = "btnReiniciarUniverso";
-            btnReiniciarUniverso.Size = new Size(151, 29);
-            btnReiniciarUniverso.TabIndex = 8;
-            btnReiniciarUniverso.Text = "Reiniciar el universo";
-            btnReiniciarUniverso.UseVisualStyleBackColor = true;
-            btnReiniciarUniverso.Click += btnReiniciarUniverso_Click;
-            // 
-            // lblEstado
-            // 
-            lblEstado.Location = new Point(464, 662);
-            lblEstado.Name = "lblEstado";
-            lblEstado.Size = new Size(309, 62);
-            lblEstado.TabIndex = 9;
-            // 
-            // FormPanelUniverso
-            // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1378, 779);
+            btnAbajo.Click += new EventHandler(this.btnAbajo_Click);
+
+            // ============================
+            // ESTILO BOTONES SECUNDARIOS
+            // ============================
+            Action<Button> estiloSec = (btn) =>
+            {
+                btn.BackColor = Color.FromArgb(60, 70, 100);
+                btn.ForeColor = Color.White;
+                btn.FlatStyle = FlatStyle.Flat;
+                btn.FlatAppearance.BorderSize = 0;
+                btn.Font = new Font("Orbitron", 12F, FontStyle.Bold, GraphicsUnit.Point);
+                btn.Size = new Size(220, 44);
+
+                btn.MouseEnter += (s, e) => { btn.BackColor = Color.FromArgb(0, 200, 255); btn.ForeColor = Color.Black; };
+                btn.MouseLeave += (s, e) => { btn.BackColor = Color.FromArgb(60, 70, 100); btn.ForeColor = Color.White; };
+            };
+
+            // ============================
+            // BOTONES SECUNDARIOS
+            // ============================
+            btnResbalarPinguino = new Button();
+            btnResbalarPinguino.Location = new Point(80, 500);
+            estiloSec(btnResbalarPinguino);
+            btnResbalarPinguino.Text = "Resbalar Pingüino";
+            btnResbalarPinguino.Click += new EventHandler(this.btnResbalarPinguino_Click);
+
+            btnSubirPan = new Button();
+            btnSubirPan.Location = new Point(80, 560);
+            estiloSec(btnSubirPan);
+            btnSubirPan.Text = "Subir Pan";
+            btnSubirPan.Click += new EventHandler(this.btnSubirPan_Click);
+
+            btnReiniciarUniverso = new Button();
+            btnReiniciarUniverso.Location = new Point(80, 620);
+            estiloSec(btnReiniciarUniverso);
+            btnReiniciarUniverso.Text = "Reiniciar Universo";
+            btnReiniciarUniverso.Click += new EventHandler(this.btnReiniciarUniverso_Click);
+
+            // ============================
+            // ESTADO (ABAJO CENTRADO)
+            // ============================
+            lblEstado = new Label();
+            lblEstado.AutoSize = false;
+            lblEstado.Width = this.ClientSize.Width;
+            lblEstado.Height = 48;
+            lblEstado.Location = new Point(0, this.ClientSize.Height - 70);
+            lblEstado.TextAlign = ContentAlignment.MiddleCenter;
+            lblEstado.Font = new Font("Audiowide", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            lblEstado.ForeColor = Color.White;
+            lblEstado.Text = "El universo espera tus órdenes.";
+
+            // ============================
+            // AGREGAR CONTROLES AL FORM
+            // ============================
             Controls.Add(lblEstado);
             Controls.Add(btnReiniciarUniverso);
             Controls.Add(btnSubirPan);
             Controls.Add(btnResbalarPinguino);
-            Controls.Add(btnAbajo);
+
+            Controls.Add(btnArriba);
             Controls.Add(btnIzquierda);
             Controls.Add(btnDerecha);
-            Controls.Add(btnArriba);
+            Controls.Add(btnAbajo);
+
             Controls.Add(lblTitulo);
-            Name = "FormPanelUniverso";
-            Text = "FormPanelUniverso";
-            Load += FormPanelUniverso_Load;
+
+            this.Name = "FormPanelUniverso";
+            this.Text = "Panel del Universo";
+            this.Load += new EventHandler(this.FormPanelUniverso_Load);
+
             ResumeLayout(false);
         }
 
