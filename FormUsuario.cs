@@ -36,9 +36,9 @@ namespace ProyectoEstupido
             {
                 MostrarMensajeAleatorio(new[]
                 {
-            "¿Por favor ingresa algo",
-            "Al menos inventa un nombre",
-            "Esto no es un campo opcional"
+            "¿Por favor ingresa algo.",
+            "Al menos inventa un nombre.",
+            "Esto no es un campo opcional."
         });
             }
             else if (nombre.Length < 3)
@@ -46,8 +46,8 @@ namespace ProyectoEstupido
                 MostrarMensajeAleatorio(new[]
                 {
             "¿Tan corto? Eso suena como un apodo de emergencia.",
-            "Tan pocas letras no bastan para definir tu existencia",
-            "Muy corto Escribe algo más decente."
+            "Tan pocas letras no bastan para definir tu existencia.",
+            "Muy corto. Escribe algo más decente."
         });
             }
             else if (nombre.Length > 9)
@@ -83,7 +83,7 @@ namespace ProyectoEstupido
                 {
             "¿GRITAS TU NOMBRE? No hace falta tanta energía.",
             "Baja la voz, que esto no es un estadio.",
-            "Escribe como una persona civilizada, sin gritas"
+            "Escribe como una persona civilizada, sin gritar."
         });
             }
             else if (nombre.All(char.IsLower))
@@ -92,7 +92,7 @@ namespace ProyectoEstupido
                 {
             "¿Todo en minúscula? Al menos una mayúscula por educación.",
             "No te cuesta nada usar una mayúscula inicial, vamos.",
-            "Parece que el Shift te tiene miedo usa al menos una mayuscula"
+            "Parece que el Shift te tiene miedo usa al menos una mayúscula."
         });
             }
             else if (nombre.Distinct().Count() <= 3)
@@ -109,7 +109,7 @@ namespace ProyectoEstupido
                 MostrarMensajeAleatorio(new[]
                 {
             "¿Tantas mayúsculas? No estamos en una placa conmemorativa.",
-            "Haz usado demasiadas mayusculas",
+            "Haz usado demasiadas mayúsculas.",
             "Demasiada mayusculas para un simple nombre."
         });
             }
@@ -137,7 +137,8 @@ namespace ProyectoEstupido
         private void MostrarMensaje(string texto)
         {
             lblResultado.Text = texto;
-            lblResultado.Visible = true;
+            if (!lblResultado.Visible)
+                 lblResultado.Visible = true;
         }
 
         //Posiciona aleatoriamente el formulario

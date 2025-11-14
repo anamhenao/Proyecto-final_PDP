@@ -109,12 +109,8 @@ namespace ProyectoEstupido
             }
             else
             {
-                MessageBox.Show(
-                    "Sabia decisión",
-                    "Cancelado",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
+                CustomMessageBox.Mostrar("Sabia decisión");
+
                 this.Close();
             }
         }

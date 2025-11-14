@@ -47,7 +47,7 @@
 
             // ===== LABEL MENSAJE =====
             lblMensaje.AutoSize = false;
-            lblMensaje.Font = new Font("Segoe UI", 14, FontStyle.Bold);
+            lblMensaje.Font = new Font("AudioWide", 14, FontStyle.Bold);
             lblMensaje.ForeColor = Color.FromArgb(0, 255, 255);
             lblMensaje.TextAlign = ContentAlignment.MiddleCenter;
             lblMensaje.Location = new Point(40, 40);
@@ -55,7 +55,7 @@
             lblMensaje.Text = "¿Deseas continuar?";
 
             // ===== BOTÓN SÍ =====
-            btnSi.Font = new Font("Segoe UI", 12, FontStyle.Bold);
+            btnSi.Font = new Font("Orbitron", 12, FontStyle.Bold);
             btnSi.BackColor = Color.FromArgb(20, 20, 30);
             btnSi.ForeColor = Color.FromArgb(0, 255, 255);
             btnSi.FlatStyle = FlatStyle.Flat;
@@ -82,7 +82,7 @@
 
 
             // ===== BOTÓN NO =====
-            btnNo.Font = new Font("Segoe UI", 12, FontStyle.Bold);
+            btnNo.Font = new Font("Orbitron", 12, FontStyle.Bold);
             btnNo.BackColor = Color.FromArgb(20, 20, 30);
             btnNo.ForeColor = Color.FromArgb(255, 80, 80);
             btnNo.FlatStyle = FlatStyle.Flat;

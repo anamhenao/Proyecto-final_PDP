@@ -9,7 +9,6 @@ namespace ProyectoEstupido
     {
         private string rutaArchivo;
 
-
         //Constructor
         public FormInicioSesion()
         {
@@ -38,6 +37,30 @@ namespace ProyectoEstupido
         {
             lblTitulo.Text = "✨ Bienvenido al Universo ✨";
             lblTitulo.Font = new System.Drawing.Font("Segoe UI", 16, System.Drawing.FontStyle.Bold);
+        }
+
+        //Evento para el boton de ver contraseña
+       private void btnVerContrasena_Click(object sender, EventArgs e)
+        {
+            // protección básica
+            if (txtContrasena == null) return;
+
+            // asegúrate de que el TextBox tenga un PasswordChar inicial en el designer:
+            // txtContrasena.PasswordChar = '*';
+
+            // Alternar usando PasswordChar ('\0' = sin máscara)
+            if (txtContrasena.PasswordChar == '\0' || txtContrasena.PasswordChar == '\u0000')
+            {
+                // actualmente visible -> ocultar con '*'
+                txtContrasena.PasswordChar = '*';
+                btnVerContrasena.Text = "👁"; // o "Ver"
+            }
+            else
+            {
+                // actualmente oculto -> mostrar
+                txtContrasena.PasswordChar = '\0';
+                btnVerContrasena.Text = "🙈"; // o "Ocultar"
+            }
         }
 
 
@@ -71,10 +94,11 @@ namespace ProyectoEstupido
                 }
             }
 
+            
             //Si se encontro el usuario se abre el formulario captcha
             if (usuarioEncontrado && contrasenaCorrecta)
             {
-                MessageBox.Show("Identidad confirmada, por favor verifique que es un humano");
+                CustomMessageBox.Mostrar("Identidad confirmada, por favor verifique que es un humano " );
                 FormCaptcha captcha = new FormCaptcha(usuario, contrasena, false);
                 captcha.Show();
                 this.Hide();
@@ -99,7 +123,7 @@ namespace ProyectoEstupido
             }
             else
             {
-                MessageBox.Show("Contraseña incorrecta. Intentalo de nuevo");
+                CustomMessageBox.Mostrar("Contraseña incorrecta. Intentalo de nuevo");
             }
         }
         //Posiciona aleatoriamente el formulario
@@ -114,5 +138,7 @@ namespace ProyectoEstupido
             this.Left = randomX;
             this.Top = randomY;
         }
+
+    
     }
 }

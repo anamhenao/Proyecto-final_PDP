@@ -35,58 +35,76 @@
             lblPregunta = new Label();
             SuspendLayout();
             // 
-            // btnDespues
-            // 
-            btnDespues.Location = new Point(568, 159);
-            btnDespues.Name = "btnDespues";
-            btnDespues.Size = new Size(94, 29);
-            btnDespues.TabIndex = 9;
-            btnDespues.Text = "Despues";
-            btnDespues.UseVisualStyleBackColor = true;
-            btnDespues.Click += btnDespues_Click;
-            // 
-            // btnContinuar
-            // 
-            btnContinuar.Location = new Point(347, 244);
-            btnContinuar.Name = "btnContinuar";
-            btnContinuar.Size = new Size(94, 29);
-            btnContinuar.TabIndex = 8;
-            btnContinuar.Text = "Continuar";
-            btnContinuar.UseVisualStyleBackColor = true;
-            btnContinuar.Click += btnContinuar_Click;
-            // 
+            // lblPregunta
+            lblPregunta.AutoSize = true;
+            lblPregunta.MaximumSize = new Size(600, 0); 
+            lblPregunta.Left = (this.ClientSize.Width - lblPregunta.Width) / 2;
+            lblPregunta.TextAlign = ContentAlignment.MiddleCenter;
+            lblPregunta.Font = new Font("AudioWide", 13F, FontStyle.Bold);
+            lblPregunta.ForeColor = Color.FromArgb(0, 255, 255);
+            lblPregunta.Location = new Point(80, 40);
+            lblPregunta.Name = "lblPregunta";
+            lblPregunta.Size = new Size(600, 60);
+            lblPregunta.TabIndex = 5;
+            lblPregunta.Text = "Pregunta";
+
+            // lblResultado
+            lblResultado.AutoSize = false;
+            lblResultado.TextAlign = ContentAlignment.MiddleCenter;
+            lblResultado.Font = new Font("AudioWide", 11F, FontStyle.Italic);
+            lblResultado.ForeColor = Color.FromArgb(0, 255, 255);
+            lblResultado.Location = new Point(80, 310);
+            lblResultado.Name = "lblResultado";
+            lblResultado.Size = new Size(600, 40);
+            lblResultado.TabIndex = 6;
+            lblResultado.Text = ""; 
+
             // btnAntes
-            // 
-            btnAntes.Location = new Point(139, 196);
+            btnAntes.Location = new Point(120, 170);
             btnAntes.Name = "btnAntes";
-            btnAntes.Size = new Size(94, 29);
+            btnAntes.Size = new Size(120, 38);
             btnAntes.TabIndex = 7;
             btnAntes.Text = "Antes";
-            btnAntes.UseVisualStyleBackColor = true;
+            btnAntes.Font = new Font("Orbitron", 10F, FontStyle.Bold);
+            btnAntes.BackColor = Color.FromArgb(0, 255, 255);
+            btnAntes.ForeColor = Color.FromArgb(20, 20, 30);
+            btnAntes.FlatStyle = FlatStyle.Flat;
+            btnAntes.FlatAppearance.BorderSize = 0;
+            btnAntes.Cursor = Cursors.Hand;
             btnAntes.Click += btnAntes_Click;
-            // 
-            // lblResultado
-            // 
-            lblResultado.AutoSize = true;
-            lblResultado.Location = new Point(357, 356);
-            lblResultado.Name = "lblResultado";
-            lblResultado.Size = new Size(50, 20);
-            lblResultado.TabIndex = 6;
-            lblResultado.Text = "label2";
-            // 
-            // lblPregunta
-            // 
-            lblPregunta.AutoSize = true;
-            lblPregunta.Location = new Point(357, 75);
-            lblPregunta.Name = "lblPregunta";
-            lblPregunta.Size = new Size(50, 20);
-            lblPregunta.TabIndex = 5;
-            lblPregunta.Text = "label1";
-            // 
+
+            // btnDespues
+            btnDespues.Location = new Point(540, 170);
+            btnDespues.Name = "btnDespues";
+            btnDespues.Size = new Size(120, 38);
+            btnDespues.TabIndex = 9;
+            btnDespues.Text = "Después";
+            btnDespues.Font = new Font("Orbitron", 10F, FontStyle.Bold);
+            btnDespues.BackColor = Color.FromArgb(0, 255, 255);
+            btnDespues.ForeColor = Color.FromArgb(20, 20, 30);
+            btnDespues.FlatStyle = FlatStyle.Flat;
+            btnDespues.FlatAppearance.BorderSize = 0;
+            btnDespues.Cursor = Cursors.Hand;
+            btnDespues.Click += btnDespues_Click;
+
+            // btnContinuar
+            btnContinuar.Location = new Point(320, 240);
+            btnContinuar.Name = "btnContinuar";
+            btnContinuar.Size = new Size(140, 40);
+            btnContinuar.TabIndex = 8;
+            btnContinuar.Text = "Continuar";
+            btnContinuar.Font = new Font("Orbitron", 10F, FontStyle.Bold);
+            btnContinuar.BackColor = Color.FromArgb(0, 255, 255);   // azul Google
+            btnContinuar.ForeColor = Color.Black;
+            btnContinuar.FlatStyle = FlatStyle.Flat;
+            btnContinuar.FlatAppearance.BorderSize = 0;
+            btnContinuar.Cursor = Cursors.Hand;
+            btnContinuar.Click += btnContinuar_Click;
             // FormNacimiento
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            this.BackColor = Color.FromArgb(5, 10, 25);
             ClientSize = new Size(800, 450);
             Controls.Add(btnDespues);
             Controls.Add(btnContinuar);
